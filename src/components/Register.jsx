@@ -31,9 +31,9 @@ const Register = () => {
     }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit} className="registerForm">
-                <label>
+        <div class="regCont">
+            <form onSubmit={handleSubmit}>
+                <label className="regName">
                     First name:
                     <input 
                         type="text"
@@ -41,7 +41,7 @@ const Register = () => {
                         onChange={(e) => {setFname(e.target.value)}}
                 />
                 </label>
-                <label>
+                <label className="regLName">
                     Last Name:
                     <input 
                         type="text"
@@ -49,7 +49,7 @@ const Register = () => {
                         onChange={(e) => {setLname(e.target.value)}}
                 />
                 </label>
-                <label>
+                <label className="regEmail">
                     Email:
                     <input 
                         type="email"
@@ -57,7 +57,7 @@ const Register = () => {
                         onChange={(e) => {setEmail(e.target.value)}}
                     />
                 </label>
-                <label>
+                <label className="regPass">
                     Password:
                     <input 
                         type="text"
@@ -65,7 +65,7 @@ const Register = () => {
                         onChange={(e) => {setPassword(e.target.value)}}
                     />
                 </label>
-                <button type="submit">Register</button>
+                <button type="submit"  className="regButton">Register</button>
             </form>
             {
                 error ? <p>{error}</p> : null

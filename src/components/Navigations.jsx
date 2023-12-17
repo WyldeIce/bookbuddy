@@ -5,18 +5,20 @@ const Navigations = ({user}) => {
     
     return (
         <nav>
-            <Link to='/books'>Books</Link>
+            <Link to='/homepage' className="navLink">Home</Link>
+            <Link to='/books' className="navLink">Books</Link>
+            <Link to='/aboutus' className="navLink">About Us</Link>
             {
                 user.email ? (
                     <span>
-                        <Link to="/account">User</Link>
+                        <Link to="/account" className="navLink">User</Link>
                     </span>
                 
                 ) : (
                     
                     <span>
-                        <Link to="/login">Login</Link>
-                        <Link to='/register'>Register</Link>
+                        <Link to="/login" className="navLink">Login</Link>
+                        <Link to='/register' className="navLink">Register</Link>
                     </span>
                 )
             }

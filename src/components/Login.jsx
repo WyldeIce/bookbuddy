@@ -28,9 +28,9 @@ const Login = ({setToken}) => {
     }
 
     return(
-        <div>
+        <div className="logCont">
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className="logEmail">
                     Email:
                     <input 
                         type="text"
@@ -38,7 +38,7 @@ const Login = ({setToken}) => {
                         onChange={(e) => {setEmail(e.target.value)}}
                     />
                 </label>
-                <label>
+                <label className="logPass">
                     Password:
                     <input 
                         type="text"
@@ -46,7 +46,7 @@ const Login = ({setToken}) => {
                         onChange={(e) => {setPassword(e.target.value)}}
                     />
                 </label>
-                <button type="submit">Login</button>
+                <button type="submit" className="logIn">Login</button>
             </form>
             {
                 error ? <p>{error}</p> : null

@@ -10,11 +10,13 @@ import Account from './components/Account'
 import SuccessRegi from './components/SuccessRegi'
 import Homepage from './components/Homepage'
 import SingleBook from './components/SingleBook'
+import AboutUs from './components/AboutUs'
 
 function App() {
   const [token, setToken] = useState(null)
   const [user, setUser] = useState({})
   const [books, setBooks] = useState([])
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchBooks = async() => {
@@ -53,16 +55,18 @@ function App() {
  
   return (
     <>
-    <h1><img id='logo-image' src={bookLogo}/><Link to='/'>Library App</Link></h1>
+    <h1 className="homeLink"><img id='logo-image' src={bookLogo}/><Link to='/homepage'>Library App</Link></h1>
+    <p className="homeP">Viewing as: { user.firstname ? user.firstname : "Guest" }</p>
     <Navigations user={user}/>
     <Routes>
-      <Route path='/' element={<Homepage/>}/>
+      <Route path='/homepage' element={<Homepage books={books} token={token} user={user}/>}/>
+      <Route path='aboutus' element={<AboutUs />} />
       <Route path='/successReg' element={<SuccessRegi />}/>
-      <Route path='/books' element={<Books books={books} />}/>
-      <Route path='/books/:id' element={<SingleBook books={books} />}/>
-      <Route path='/login' element={<Login setUser={setUser} setToken={setToken}/>}/>
+      <Route path='/books' element={<Books books={books} error={error} user={user} token={token}/>}/>
+      <Route path='/books/:id' element={<SingleBook books={books} user={user} token={token}/>}/>
+      <Route path='/login' element={<Login setUser={setUser} setToken={setToken} token={token}/>}/>
       <Route path='/register' element={<Register />}/>
-      <Route path='/account' element={<Account user={user} setUser={setUser} setToken={setToken}/>}/>
+      <Route path='/account' element={<Account user={user} setUser={setUser} setToken={setToken} books={books} token={token}/>}/>
     </Routes>
 
       
